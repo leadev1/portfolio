@@ -1,0 +1,888 @@
+
+/* Couleur du fond par defaut de la page */
+body {
+    background-color: #0c2f97;
+}
+
+
+/***** Style Navbar *****/
+/* Couleur de fond de la navbar */
+.navbar {
+    background: #002266 !important;
+}
+
+/* Text "Portfolio" */
+.navbar-brand h2:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 3px;
+    position: absolute;
+    background: rgb(248, 248, 255);
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.navbar-brand h2:hover:after {
+    width: 8%;
+    left: 0;
+}
+
+/* Text bouton de navigation */
+a span {
+    color: rgb(216, 214, 214);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: large;
+}
+
+/* Effet quand on passe la souris dessus */
+a span:hover {
+    color: rgb(255, 255, 255);
+}
+
+
+/***** Style Card Flip index.html *****/
+/* Proprietes des card flip */
+.flip-card {
+    background-color: transparent;
+    width: 500px;
+    height: 600px;
+    perspective: 1000px;
+    border-radius: 20px 20px 16px 16px;
+}
+
+.flip-card-inner {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: 0.5s ease;
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 10px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 20px 20px 16px 16px;
+
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 20px 20px 16px 16px;
+}
+
+.flip-card-front {
+    background-color: #002266;
+}
+
+/* Rotation de la card */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Proprietes des images des card */
+.flip-card-front img {
+    width: 100%;
+    height: 51.5%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 20px 20px 16px 16px;
+}
+
+/*  */
+.flip-card-back {
+    background-color: #FFFFFF;
+    color: rgb(227, 60, 60);
+    transform: rotateY(180deg);
+}
+
+/* Proprietes text sous image des card */
+.title-front-card {
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    font-weight: bold;
+    font-size: xx-large;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow:
+        0 0 1px antiquewhite,
+        0 0 1px antiquewhite,
+        0 0 42px #ffffff,
+        0 0 60px #ffffff,
+        0 0 100px #ffffff;
+    animation: lumiere 1s infinite linear;
+}
+
+/* Placement des card */
+section {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 5%;
+    align-items: center;
+}
+
+/* Titre back des card */
+.flip-card-back h1 {
+    color: #21618C;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+/* Text back des card */
+.flip-card-back p {
+    color: #050028;
+}
+
+/* Proprietes scrollbar */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #534a8d;
+    border-radius: 10px;
+}
+
+/* Text back card competence */
+.flip-card-back-competence p {
+    height: 75%;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.flip-card-back-competence p:hover {
+    overflow-y: scroll;
+}
+
+.flip-card-front,
+.flip-card-back-competence {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 20px 20px 16px 16px;
+}
+
+.flip-card-back-competence {
+    background-color: #FFFFFF;
+    color: #050028;
+    transform: rotateY(180deg);
+}
+
+/* Titre back card competence */
+.flip-card-back-competence h1 {
+    color: #21618C;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+
+/***** Style texte "Mon portfolio en ligne" index.html *****/
+/* Proprietes du texte */
+.heading {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+/* Text avant le passage de la barre */
+.heading h2 {
+    position: relative;
+    font-size: clamp(0.75rem, 7.5vw, 3.75rem);
+    line-height: 2em;
+    letter-spacing: -0.01em;
+    color: antiquewhite;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 50px;
+}
+
+/* Text après le passage de la barre */
+.heading h2::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    border-right: 2px solid rgb(255, 255, 255);
+    overflow: hidden;
+    animation: move 5s alternate ease-in-out infinite;
+}
+
+/* Movement de la barre */
+@keyframes move {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 30%;
+    }
+}
+
+
+/***** Style texte "Hello my name is Mathis" index.html *****/
+/* Proprietes du texte */
+.heading-anglais {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+/* Text avant le passage de la barre */
+.heading-anglais h2 {
+    position: relative;
+    font-size: clamp(0.75rem, 7.5vw, 3.75rem);
+    line-height: 2em;
+    letter-spacing: -0.01em;
+    color: antiquewhite;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 50px;
+}
+
+/* Text après le passage de la barre */
+.heading-anglais h2::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    border-right: 2px solid rgb(255, 255, 255);
+    overflow: hidden;
+    animation: move1 5s alternate ease-in-out infinite;
+}
+
+/* Movement de la barre */
+@keyframes move1 {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 23%;
+    }
+}
+
+
+
+/***** Style texte et image avant la FAQ index.html *****/
+/* Création de la bande */
+.bande {
+    padding: 3%;
+    background: #002266;
+}
+
+.col-md-12 {
+    position: relative;
+}
+
+/* Proprietes de l'image à gauche */
+.col-md-12 img {
+    float: left;
+}
+
+/* Proprietes texte à droite de l'image */
+.col-md-12 h2 {
+    color: rgb(248, 248, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 300%;
+}
+
+.col-md-12 p {
+    color: #D2D0E6;
+    padding-top: 4%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 120%;
+}
+
+
+/***** Style texte FAQ index.html *****/
+/* Proprietes du texte */
+.heading-faq h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: transform .2s;
+    color: #ffffff;
+}
+
+/* Effet quand on passe la souris dessus */
+.heading-faq h2:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 3px;
+    left: 50%;
+    background: rgb(204, 124, 50);
+    transition: width 0.3s ease 0s, left 0.6s ease 0s;
+    width: 0;
+}
+
+.heading-faq h2:hover:after {
+    color: #ffffff;
+    width: 100%;
+    left: 0;
+}
+
+/***** Style accordion FAQ index.html *****/
+/* Proprietes accordion */
+.accordion {
+    display: block;
+    align-items: center;
+    width: 70%;
+    height: 50%;
+    justify-content: center;
+
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    background-color: #3b375a !important;
+    color: #000000;
+}
+
+.accordion-item {
+    padding: 20px;
+    background-color: transparent;
+}
+
+.accordion-button {
+    border-radius: 20px;
+}
+
+/* Titre des boutons */
+.accordion-item h2 button {
+    color: rgb(248, 248, 255);
+    background-color: #2A2649;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #3b375a;
+    color: #ffffff;
+}
+
+/* Text deroule */
+.accordion-body {
+    color: rgb(248, 248, 255);
+    background-color: #2A2649;
+}
+
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+}
+
+/***** Style boutton index.html *****/
+/* Bouton download CV */
+.d-flex button {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.d-flex button:hover {
+    background-color: #dcdbda;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+}
+
+/* Bouton back to top */
+.bas {
+    padding-top: 2%;
+}
+
+.d-flex a {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+
+}
+
+.d-flex a:hover {
+    background-color: #ac5d03;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+}
+
+/* Effet quand on passe la souris dessus */
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-2px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(2px, 0, 0);
+    }
+}
+
+.flip-card-back a {
+    background-color: rgb(255, 255, 255);
+    color: rgb(248, 248, 255);
+    border-radius: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.flip-card-back a:hover {
+    background-color: #ac5d03;
+    color: rgb(248, 248, 255);
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+}
+
+
+/***** Style mailbox liensutiles.html *****/
+/* Proprietes de la mailbox */
+.mail {
+    padding: 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mail:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    background-size: cover;
+    filter: blur(50px);
+    z-index: -1;
+}
+
+.contact-box {
+    max-width: 850px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #2A2649;
+    box-shadow: 0px 0px 19px 5px rgba(0, 0, 0, 0.19);
+    border-radius: 20px;
+}
+
+/* Image partie gauche */
+.left {
+    background: url("../img/enveloppe.gif") no-repeat center;
+    background-size: cover;
+    height: 100%;
+    border-radius: 20px 0px 0px 20px;
+    border: none;
+}
+
+.right {
+    padding: 25px 40px;
+}
+
+/* Texte "Me contacter" envoie  */
+.mail h2 {
+    position: relative;
+    padding: 0 0 10px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.mail h2:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 50px;
+    border-radius: 2px;
+    background-color: #FF9950;
+}
+
+/* Proprietes des cases à completer */
+.field {
+    width: 100%;
+    border: 2px solid rgba(0, 0, 0, 0);
+    outline: none;
+    background-color: rgba(247, 247, 248, 0.822);
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 22px;
+    transition: .3s;
+    border-radius: 5px;
+}
+
+.field:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+    min-height: 150px;
+}
+
+/* Boutou d'envoie */
+.butn {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: #FF9950;
+    color: #fff;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: .3s;
+    border-radius: 5px;
+}
+
+.butn:hover {
+    background-color: #ac5d03;
+    animation: shakebutn 0.4s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+}
+
+/* Effet quand on passe la souris dessus */
+@keyframes shakebutn {
+
+    10%,
+    40% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    50%,
+    50%,
+    30% {
+        transform: translate3d(-2px, 0, 0);
+    }
+
+    10%,
+    20% {
+        transform: translate3d(2px, 0, 0);
+    }
+}
+
+.field:focus {
+    border: 2px solid rgba(30, 85, 250, 0.47);
+    background-color: #fff;
+}
+
+/* bouton changement langue page liens-utiles*/
+
+.langue-liens a {
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 8px;
+
+}
+
+.langue-liens {
+    padding-top: 90px;
+    display: flex;
+    justify-content: center;
+}
+
+.langue-liens a:hover {
+    background-color: #ac5d03;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+}
+
+/***** Style responsive *****/
+/* Modification de certains éléments pour le responsive */
+@media screen and (max-width: 768px) {
+    .contact-box {
+        grid-template-columns: 1fr;
+    }
+
+    .left {
+        height: 0px;
+    }
+
+    .right {
+        padding: 80px 80px 80px 80px;
+    }
+
+    .video_exp {
+        width: 80%;
+    }
+
+    .bande img {
+        padding-left: 18%;
+    }
+
+    .heading-faq h2 {
+        padding: 2%;
+    }
+
+    .col-md-6 h4 {
+        text-align: center;
+    }
+
+    .col-md-6 h3 {
+        text-align: center;
+    }
+
+    .col-md-3 {
+        padding-top: 2%;
+    }
+
+    .col-md-6 {
+        padding-left: 0;
+    }
+
+    .col-md-7 {
+        padding-left: 4.5%;
+    }
+
+    .col-md-5 {
+        padding-left: 5%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .col-md-3 {
+        padding-left: 7%;
+    }
+
+    .col-md-6 ul,
+    .my-3 {
+        padding-left: 10%;
+    }
+
+    .col-md-6 {
+        padding-left: 1%;
+    }
+}
+
+/* Responsive texte "Bonjour je m'appelle Mathis" index.html */
+@media screen and (max-width: 1003px) {
+    .heading h2::before {
+        display: none;
+    }
+
+    .heading {
+        text-align: center;
+    }
+
+    .heading-anglais h2::before {
+        display: none;
+    }
+
+    .heading-anglais {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .flip-card {
+        padding-bottom: 5%;
+    }
+}
+
+/* propriétés titre de la page exp-pro */
+.col-lg-12 {
+    color: rgb(248, 248, 255);
+    text-align: center;
+    padding-bottom: 1%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 0 0 25px #B3D2F7;
+
+}
+
+/* texte de la page exp-pro */
+.container8 {
+    color: rgb(248, 248, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* proprietes les 3 box en haut de la page exp-pro */
+.container11 {
+    display: flex;
+    margin: 4%;
+}
+
+.carte {
+    border-radius: 20px;
+    background-color: #221b52;
+    flex: 1;
+    transition: .3s all ease;
+    margin-left: 10px;
+    height: 10%;
+    color: rgb(248, 248, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    box-shadow: 0 10px 10px 10px rgba(0, 3, 15, 0.2);
+}
+
+.carte h4 {
+    padding-top: 2%;
+}
+
+.carte:hover {
+    flex: 2;
+    background-color: #534a8d;
+    box-shadow: 0 0px 5px 2px rgba(187, 186, 186, 0.2);
+}
+
+/* soulignement titre page competences*/
+.underline-text {
+    text-decoration-color: rgb(255, 169, 39);
+    text-decoration-thickness: 2px;
+    padding-top: 2%;
+}
+
+/* progressbar proprietés page competences*/
+.progress {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.bar-position {
+    padding-top: 5%;
+    padding-bottom: 4%;
+}
+
+/* texte au dessus de la progressbar proprietés page competences*/
+.texte-courbe {
+    color: rgb(248, 248, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-size: 180%;
+    padding-bottom: 1%;
+}
+
+/* proprietés éléments page competences*/
+.col-md-5 {
+    background-color: #1c1741;
+    border-radius: 15px;
+
+}
+
+/* proprietés boutons page competences*/
+.col-md-5 a {
+    background-color: rgb(255, 255, 255);
+    color: rgb(248, 248, 255);
+    border-radius: 10px;
+
+}
+
+.col-md-5 a:hover {
+    background-color: #ac5d03;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+}
+
+
+/***** Style projet professionnel projetprofessionnel.html *****/
+/* Carousel */
+
+.carousel-inner {
+    border-radius: 15px;
+}
+
+/* Titre et texte projet professionnel */
+.text-projet {
+    text-align: center;
+    color: #D2D0E6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.titre-projet-pro {
+    color: rgb(248, 248, 255);
+    text-align: center;
+    padding-bottom: 1%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 0 0 25px #B3D2F7;
+}
+
+
+/***** Style Footer *****/
+/* Zone icones footer */
+.container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 00%;
+    justify-content: center;
+    min-height: 1vh;
+}
+
+/* Couleur bas du footer */
+.text-center {
+    background-color: #002266;
+}
+
+/* Text bas du footer */
+.text-center span {
+    color: rgb(255, 255, 255);
+}
+
+/* Text haut du footer */
+.text-contact-reseaux p {
+    font-size: 150%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* propietes bouton changement langue plusieurs pages*/
+.langue a {
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 8px;
+
+}
+
+.langue {
+    float: right;
+    padding-right: 0.1%;
+    padding-top: 90px;
+}
+
+.langue a:hover {
+    background-color: #ac5d03;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+}
