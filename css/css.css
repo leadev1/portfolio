@@ -237,7 +237,7 @@ section {
 }
 
 
-/***** Style texte "Hello my name is Mathis" index.html *****/
+/***** Style texte "My portfolio" index.html *****/
 /* Proprietes du texte */
 .heading-anglais {
     position: relative;
@@ -693,7 +693,7 @@ textarea {
     }
 }
 
-/* Responsive texte "Bonjour je m'appelle Mathis" index.html */
+/* Responsive texte "My portfolio" index.html */
 @media screen and (max-width: 1003px) {
     .heading h2::before {
         display: none;
